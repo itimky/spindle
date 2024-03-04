@@ -1,0 +1,34 @@
+linters:
+  enable-all: true
+  disable:
+    # Disable deprecated linters
+    - structcheck
+    - nosnakecase
+    - maligned
+    - golint
+    - interfacer
+    - varcheck
+    - exhaustivestruct
+    - scopelint
+    - deadcode
+    - ifshort
+    # Disable formatting linters except the used one
+    - gofumpt
+issues:
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - depguard
+        - goerr113
+        - exhaustruct
+        - funlen
+linters-settings:
+  depguard:
+    rules:
+      pkg:
+        files:
+          - pkg/**/*.go
+        deny:
+          - pkg: github.com/itimky/spindle/internal
+            desc: not allowed, internal imports pkg, not vice versa

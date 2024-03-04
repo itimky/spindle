@@ -1,0 +1,13 @@
+.git
+.github
+
+docs
+
+.dockerignore
+.gitignore
+.golangci.yaml
+.mockery.yaml
+
+Dockerfile
+README.md
+Taskfile.yaml

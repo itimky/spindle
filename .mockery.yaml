@@ -1,0 +1,29 @@
+# https://vektra.github.io/mockery/latest/configuration/
+
+log-level: warn
+all: true
+dir: 'test/{{ replaceAll .InterfaceDirRelative "github.com/itimky/spindle" "" }}'
+outpkg: mocks
+packages:
+  github.com/IBM/sarama:
+    config:
+      all: false
+    interfaces:
+      ConsumerGroupSession: {}
+      ConsumerGroupClaim: {}
+
+  github.com/itimky/spindle/pkg/sys/queue:
+    config:
+      all: false
+    interfaces:
+      router: {}
+  github.com/itimky/spindle/pkg/sys/queue/adapter: {}
+
+  github.com/itimky/spindle/pkg/storage/answer-processor: {}
+
+  github.com/itimky/spindle/pkg/domain/answer-processor: {}
+
+  github.com/itimky/spindle/pkg/facade/match: {}
+  github.com/itimky/spindle/pkg/facade/system: {}
+
+  github.com/itimky/spindle/pkg/handler/kafka: {}
